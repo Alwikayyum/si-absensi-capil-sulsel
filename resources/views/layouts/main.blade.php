@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SIAB | {{ $title }} </title>
+  <title class="mt-4">SIAB | {{ $title }} </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/sulawesi-selatan.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -54,7 +54,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  
+
 </body>
 
 </html>

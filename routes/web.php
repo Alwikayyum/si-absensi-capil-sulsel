@@ -26,6 +26,6 @@ Route::get('/login', function () {return view('login', [
 Route::get('/register', function () {return view('register', [
     'title' => "Register"
 ]);});
-Route::get('/index', function () {return view('landing-page', [
-    'title' => "Selamat Datang"
-]);});
+// Route::get('/index', function () {return view('landing-page', [
+//     'title' => "Selamat Datang"
+// ]);});

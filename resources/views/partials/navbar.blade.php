@@ -5,7 +5,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="/" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
+        <img src="assets/img/sulawesi-selatan.png" alt="">
         <span class="d-none d-lg-block">SIAB</span>
       </a>
     </div><!-- End Logo -->
@@ -20,7 +20,7 @@
 
         <li class="nav-item dropdown pe-3">
 
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="/" data-bs-toggle="dropdown">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="/login" > <!-- data-bs-toggle="dropdown" -->
             <img src="assets/img/dummy-man.png" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">Login/Register</span>
           </a><!-- End Profile Iamge Icon -->
