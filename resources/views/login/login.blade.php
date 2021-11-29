@@ -6,6 +6,20 @@
           <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 d-flex flex-column align-items-center justify-content-center">
              
+            @if(session()->has('succesRegistration'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ session('succesRegistration') }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
+            @if(session()->has('loginError'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              {{ session('loginError') }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
               <div class="card mb-3">
                 <div class="row g-0">
 
@@ -20,30 +34,27 @@
                         <p class="text-center small">Enter your username & password to login</p>
                       </div>
 
-                      <form class="row g-3 needs-validation" novalidate>
+                      <form action="/login" method="post" class="row g-3 needs-validation" novalidate>
+                        @csrf
 
                         <div class="col-12">
                           <label for="yourEmail" class="form-label">Email</label>
                           <div class="input-group has-validation">
-                            <input type="text" name="email" class="form-control" id="yourEmail" required>
-                            <div class="invalid-feedback">Please enter your Email.</div>
+                            <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="yourEmail" required autofocus value="{{ old('name') }}">
+                            @error('email') 
+                              <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                           </div>
                         </div>
 
                         <div class="col-12">
-                          <label for="yourPassword" class="form-label">Password</label>
+                          <label for="yourPassword" class="form-label ">Password</label>
                           <input type="password" name="passwword" class="form-control" id="yourPassword" required>
                           <div class="invalid-feedback">Please enter your password!</div>
                         </div>
 
                         <div class="col-12">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Remember me</label>
-                          </div>
-                        </div>
-                        <div class="col-12">
-                          <button class="btn btn-primary w-100" type="submit">Login</button>
+                          <button class="btn btn-primary w-100 mt-4" type="submit">Login</button>
                         </div>
                         <div class="col-12 text-center">
                           <p class="small mb-0">Don't have account? <a href="register">Create an account</a></p>
