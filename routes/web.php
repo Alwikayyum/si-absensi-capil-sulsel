@@ -20,9 +20,19 @@ Route::get('/', function () {
     return view('landing-page',[
         'title' => "Selamat Datang"
     ]);
-    
 });
-;
+
+Route::get('/profile', function () {
+    return view('profile',[
+        'title' => "Profile"
+    ]);
+});
+
+Route::get('/absensi', function () {
+    return view('absensi',[
+        'title' => "Absensi"
+    ]);
+});
 Route::get('/index', [IndexController::class, 'index'] )->middleware('auth');
 
 Route::get('/login', [loginController::class, 'index'] )->name('login')-> middleware('guest');

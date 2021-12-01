@@ -14,19 +14,21 @@
       <ul class="d-flex align-items-center">
     
         <form class="container-fluid justify-content-start mt-3">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Button</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+            <a href="/absensi">
+              <button class="btn btn-sm btn-outline-primary" type="button">Absensi</button>
+            </a>
+            {{-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> --}}
         </form>
 
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav mr-4">
           @auth
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Welcome Back, {{ auth()->user()->name }}
+            <a class="nav-link dropdown-toggle nav-profile d-flex align-items-center pr-4" href="/profile" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="assets/img/dummy-man.png" alt="Profile" class="rounded-circle ">{{ auth()->user()->name }}  
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/index"><i class="bi bi-layout-text-sidebar-reverse"></i> Absen</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="/profile"><i class="bi bi-layout-text-sidebar-reverse"></i> Profile</a></li>
+                {{-- <li><a class="dropdown-item" href="#">Another action</a></li> --}}
                 <li><hr class="dropdown-divider"></li>
                 <li>
                   <form action="/logout" method="post">
@@ -40,7 +42,7 @@
             </li>
           @else
             <li class="nav-item ms-auto">
-              <a class="nav-link nav-profile d-flex align-items-center pr-4" href="/login" > <!-- data-bs-toggle="dropdown" -->
+              <a class="nav-link nav-profile d-flex align-items-center pr-4" href="/login" > 
                 <img src="assets/img/dummy-man.png" alt="Profile" class="rounded-circle">
                 <span class="d-none d-md-block ps-2">Login/Register </span>
               </a><!-- End Profile Iamge Icon -->  
