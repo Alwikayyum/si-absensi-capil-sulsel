@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +22,12 @@ Route::get('/', function () {
     ]);
     
 });
-Route::get('/index', function () {
-    return view('index',[
-        'title' => "Absensi"
-    ]);
-    
-});
+;
+Route::get('/index', [IndexController::class, 'index'] )->middleware('auth');
 
+Route::get('/login', [loginController::class, 'index'] )->name('login')-> middleware('guest');
+Route::post('/login', [loginController::class, 'authenticate'] )->name('authenticate');
+Route::post('/logout', [loginController::class, 'logout'] );
 
-Route::get('/login', [loginController::class, 'index'] )-> middleware('guest');
-Route::post('/login', [loginController::class, 'authenticate'] );
-Route::get('/register', [RegisterController::class, 'index'] );
+Route::get('/register', [RegisterController::class, 'index'] )-> middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'] );

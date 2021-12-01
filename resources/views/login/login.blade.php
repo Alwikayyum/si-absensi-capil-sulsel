@@ -34,7 +34,7 @@
                         <p class="text-center small">Enter your username & password to login</p>
                       </div>
 
-                      <form action="/login" method="post" class="row g-3 needs-validation" novalidate>
+                      <form action="{{ route('authenticate') }}" method="post" class="row g-3 needs-validation" novalidate>
                         @csrf
 
                         <div class="col-12">
@@ -49,7 +49,7 @@
 
                         <div class="col-12">
                           <label for="yourPassword" class="form-label ">Password</label>
-                          <input type="password" name="passwword" class="form-control" id="yourPassword" required>
+                          <input type="password" name="password" class="form-control" id="yourPassword" required>
                           <div class="invalid-feedback">Please enter your password!</div>
                         </div>
 

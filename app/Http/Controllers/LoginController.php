@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Validator;
 
 class LoginController extends Controller
 {
@@ -21,14 +22,27 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
+
         if (Auth::attempt($validatedDataLogin)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/index');
+            return redirect()->intended('index');
+
         }
 
-        return back()->with([
+        return back()->with(
             'loginError', 'Login Failed!',
-        ]);
+        );
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/');
     }
 }
