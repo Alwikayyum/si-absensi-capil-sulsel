@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Validator;
+
 
 class LoginController extends Controller
 {
@@ -26,7 +26,7 @@ class LoginController extends Controller
         if (Auth::attempt($validatedDataLogin)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('index');
+            return redirect()->intended('absensi');
 
         }
 

@@ -1,12 +1,9 @@
 @extends('layouts/main')
-@extends('partials/navbar')
-
-
-
-@section('template')
     @include('partials.navbar')
+@section('template')
 
-<section class="section profile mt-5 pt-5">
+
+<section class="section profile mt-4">
   <div class="row">
     <div class="col-md-3">
 

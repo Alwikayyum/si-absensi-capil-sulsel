@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AbsenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +28,18 @@ Route::get('/profile', function () {
         'title' => "Profile"
     ]);
 });
-
 Route::get('/absensi', function () {
     return view('absensi',[
-        'title' => "Absensi"
+        'title' => "Profile"
     ]);
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard/index',[
+        'title' => "Profile"
+    ]);
+});
+
 Route::get('/index', [IndexController::class, 'index'] )->middleware('auth');
 
 Route::get('/login', [loginController::class, 'index'] )->name('login')-> middleware('guest');
@@ -41,3 +48,7 @@ Route::post('/logout', [loginController::class, 'logout'] );
 
 Route::get('/register', [RegisterController::class, 'index'] )-> middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'] );
+
+
+// Route::get('/absensi', [AbsensiController::class, 'absensi'])->middleware('auth');
+// Route::post('/absen', [AbsensiController::class, 'absen'])->middleware('auth');
