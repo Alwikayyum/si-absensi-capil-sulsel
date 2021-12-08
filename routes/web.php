@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\AbsenController;
+use App\Http\Controllers\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,17 +28,22 @@ Route::get('/profile', function () {
         'title' => "Profile"
     ]);
 });
-Route::get('/absensi', function () {
-    return view('absensi',[
-        'title' => "Profile"
-    ]);
-});
+// Route::get('/absensi', function () {
+//     return view('absensi',[
+//         'title' => "Absensi"
+//     ]);
+// });
 
-Route::get('/dashboard', function () {
-    return view('dashboard/index',[
-        'title' => "Profile"
+// Route::get('/dashboard', function () {
+//     return view('dashboard/index',[
+//         'title' => "Dashboard"
+//     ]);
+// });
+Route::get('/manage', function () {
+    return view('dashboard/manage',[
+        'title' => "Manage"
     ]);
-});
+})->middleware('auth');
 
 Route::get('/index', [IndexController::class, 'index'] )->middleware('auth');
 
@@ -50,5 +55,6 @@ Route::get('/register', [RegisterController::class, 'index'] )-> middleware('gue
 Route::post('/register', [RegisterController::class, 'store'] );
 
 
-// Route::get('/absensi', [AbsensiController::class, 'absensi'])->middleware('auth');
-// Route::post('/absen', [AbsensiController::class, 'absen'])->middleware('auth');
+// Route::get('/absensi',  'App\Http\Controllers\AbsensiController@index')->middleware('auth');
+Route::get('/absensi', [AbsensiController::class, 'absensi'])->middleware('auth');
+Route::post('/absen', [AbsensiController::class, 'absen'])->middleware('auth');

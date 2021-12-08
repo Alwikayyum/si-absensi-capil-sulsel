@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Absensi extends Migration
+class CreateAbsensisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class Absensi extends Migration
      */
     public function up()
     {
-        Schema::create('absensi', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('absensis', function (Blueprint $table) {
+            $table->id();
             $table->integer('user_id');
             $table->morphs('tokenable');
             $table->date('date');
@@ -31,6 +31,6 @@ class Absensi extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('absensis');
     }
 }
