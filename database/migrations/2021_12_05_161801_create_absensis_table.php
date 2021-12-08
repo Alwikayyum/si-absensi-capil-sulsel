@@ -14,13 +14,13 @@ class CreateAbsensisTable extends Migration
     public function up()
     {
         Schema::create('absensis', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->integer('user_id');
-            $table->morphs('tokenable');
             $table->date('date');
             $table->time('time_in');
             $table->time('time_out')->nullable();
-            $table->string('reporting')->nullable();
+            $table->string('note')->nullable();
+            $table->timestamps();
         });
     }
 

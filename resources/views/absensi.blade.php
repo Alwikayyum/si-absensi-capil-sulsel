@@ -6,8 +6,8 @@
 <div class="row">
     <div class="col-md col-md-offset-2 pt-2">
         <div class="panel panel-default">
-            <div class="panel-heading">
-                {{ session ('info') }}
+            <div class="panel-heading pt-2">
+                Selamat Datang <b>{{ auth()->user()->name }}</b>, {{ $info['status'] }}
             </div>
 
             <div class="panel-body">
@@ -20,12 +20,14 @@
                                 <input type="text" class="form-control" name="reporting" id="yourReporting" placeholder="Reporting Harian">
                             </td>
                             <td class="justify-content-end ">
-                                <button type="submit" name="buttonIn" {{ session ('info') }} class="btn btn-flat btn-primary">
+
+                                <button type="submit" name="buttonIn" {{ $info['buttonIn'] }} class="btn btn-flat btn-primary">
                                     Absen Masuk
                                 </button>
-                                <button type="submit" name="buttonOut" {{ session ('info') }} class="btn btn-flat btn-primary">
+                                <button type="submit" name="buttonOut" {{ $info['buttonOut'] }} class="btn btn-flat btn-primary">
                                     Absen Pulang
                                 </button>
+
                             </td>
                         </tr>
 
@@ -50,11 +52,11 @@
                             <th>Tanggal</th>
                             <th>Jam Masuk</th>
                             <th>Jam Pulang</th>
-                            <th>Pelaporan Harian</th>
+                            <th>laporan Harian</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{ session('data_absen') }}
+
                         @forelse ( $data_absen as $absensi)
                             
                         <tr>
